@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import "./App.css";
 
 // Navigation Component
@@ -208,13 +208,13 @@ const SignUpPage = () => {
 // App Component
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/invitation" element={<InvitationPage />} />
         <Route path="/signup" element={<SignUpPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
