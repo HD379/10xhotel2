@@ -1,53 +1,332 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import "./App.css";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+// Navigation Component
+const Navigation = ({ isLight }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  
+  const navClass = isLight ? "nav nav-light" : "nav";
+  
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
+    <nav className={navClass} data-testid="main-navigation">
+      <div className="nav-container">
+        <Link to="/" className="nav-logo" data-testid="nav-logo">
+          10<span>X</span> Hotels
+        </Link>
+        
+        <button 
+          className={`nav-toggle ${menuOpen ? 'active' : ''}`} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation" 
+          data-testid="nav-toggle"
         >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <ul className={`nav-links ${menuOpen ? 'active' : ''}`} data-testid="nav-links">
+          <li><Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} data-testid="nav-link-home" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/invitation" className={`nav-link ${location.pathname === '/invitation' ? 'active' : ''}`} data-testid="nav-link-invitation" onClick={() => setMenuOpen(false)}>Invitation</Link></li>
+          <li><Link to="/signup" className={`nav-link ${location.pathname === '/signup' ? 'active' : ''}`} data-testid="nav-link-signup" onClick={() => setMenuOpen(false)}>Sign Up</Link></li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+// Footer Component
+const Footer = () => (
+  <footer className="footer" data-testid="footer">
+    <div className="container">
+      <div className="footer-content">
+        <div className="footer-logo">10<span>X</span> Hotels</div>
+        <p className="footer-text">© 2024 Dane E. Rose. All rights reserved.</p>
+        <div className="footer-links">
+          <Link to="/invitation" className="footer-link">Invitation</Link>
+          <Link to="/signup" className="footer-link">Sign Up</Link>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
+// Scroll Reveal Hook
+const useScrollReveal = () => {
+  useEffect(() => {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    reveals.forEach(el => revealObserver.observe(el));
+    
+    return () => reveals.forEach(el => revealObserver.unobserve(el));
+  }, []);
+};
+
+// Home Page
+const HomePage = () => {
+  useScrollReveal();
+  
+  const PDF_URL = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/c09vgcva_10%20X%20Hotels.pdf";
+  const BOOK_COVER = "https://customer-assets.emergentagent.com/job_adbfac25-0cf9-498e-8349-641ebb366dc9/artifacts/69kyylf8_1775472581.png";
+  
+  return (
+    <>
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="hero" data-testid="hero-section">
+        <div className="hero-bg"></div>
+        <div className="hero-overlay"></div>
+        
+        <div className="hero-content">
+          <div className="hero-text">
+            <p className="hero-overline">A Book by Dane E. Rose</p>
+            <h1 className="hero-title" data-testid="hero-title">10X Hotels</h1>
+            <p className="hero-description">
+              Discover the principles that revolutionize value creation in the hospitality industry — 
+              for guests seeking extraordinary experiences, team members pursuing meaningful careers, 
+              and investors looking for exceptional returns.
+            </p>
+            <div className="hero-buttons">
+              <a href={PDF_URL} 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="btn btn-primary" 
+                 data-testid="hero-read-button">
+                Read Now
+              </a>
+              <a href={PDF_URL} 
+                 download="10X-Hotels.pdf" 
+                 className="btn btn-secondary" 
+                 data-testid="hero-download-button">
+                Download PDF
+              </a>
+            </div>
+          </div>
+          
+          <div className="book-container" data-testid="book-container">
+            <div className="book-wrapper">
+              <img src={BOOK_COVER} 
+                   alt="10X Hotels Book Cover" 
+                   className="book-cover"
+                   data-testid="book-cover-image" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="intro-section" data-testid="intro-section">
+        <div className="container">
+          <div className="intro-content reveal">
+            <h2 className="intro-title">Redefining Hospitality Excellence</h2>
+            <div className="intro-text">
+              <p>
+                In an industry where the difference between good and great can transform businesses, 
+                "10X Hotels" presents a groundbreaking framework for achieving exponential growth 
+                while maintaining the human touch that defines true hospitality.
+              </p>
+              <p>
+                This book challenges conventional wisdom and offers practical strategies that have 
+                been tested and proven in real-world environments. Whether you're a seasoned hotelier, 
+                an aspiring entrepreneur, or an investor seeking to understand the hospitality landscape, 
+                these insights will reshape how you think about value creation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="benefits-section" data-testid="benefits-section">
+        <div className="container">
+          <h2 className="benefits-title reveal">What You'll Discover</h2>
+          
+          <div className="benefits-grid">
+            <div className="benefit-card reveal">
+              <div className="benefit-number">01</div>
+              <h3 className="benefit-title">Guest Experience</h3>
+              <p className="benefit-text">
+                Learn how to create memorable moments that transform first-time visitors into lifelong advocates.
+              </p>
+            </div>
+            
+            <div className="benefit-card reveal">
+              <div className="benefit-number">02</div>
+              <h3 className="benefit-title">Team Excellence</h3>
+              <p className="benefit-text">
+                Discover frameworks for building teams that are engaged, empowered, and deliver exceptional service.
+              </p>
+            </div>
+            
+            <div className="benefit-card reveal">
+              <div className="benefit-number">03</div>
+              <h3 className="benefit-title">Investor Value</h3>
+              <p className="benefit-text">
+                Understand the metrics and strategies that drive sustainable, long-term returns in hospitality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+};
+
+// Invitation Page
+const InvitationPage = () => {
+  useScrollReveal();
+  
+  return (
+    <div className="invitation-page">
+      <Navigation isLight />
+      
+      {/* Hero Section */}
+      <section className="invitation-hero" data-testid="invitation-hero">
+        <div className="invitation-hero-content">
+          <p className="invitation-overline">Chapter: An Invitation</p>
+          <h1 className="invitation-hero-title" data-testid="invitation-title">You've Made It This Far</h1>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="invitation-content" data-testid="invitation-content">
+        <div className="invitation-body">
+          <p className="invitation-text reveal">
+            <span className="drop-cap">T</span>hank you for taking this journey through the pages of 10X Hotels. 
+            The fact that you've arrived here tells me something important about you — you're not content 
+            with ordinary. You seek more. You believe that excellence isn't just possible, it's essential.
+          </p>
+          
+          <p className="invitation-text reveal">
+            Throughout this book, we've explored the principles that separate exceptional hotels from 
+            merely good ones. We've examined the delicate balance between guest satisfaction, team 
+            fulfillment, and investor returns. We've challenged assumptions and questioned the status quo.
+          </p>
+          
+          <p className="invitation-text reveal">
+            But reading alone isn't enough. The true transformation begins when you take these ideas 
+            and make them your own. When you adapt them to your unique circumstances. When you have 
+            the courage to implement change, even when it's uncomfortable.
+          </p>
+          
+          <blockquote className="invitation-quote reveal" data-testid="invitation-quote">
+            The difference between where you are and where you want to be is the action you take today.
+          </blockquote>
+          
+          <p className="invitation-text reveal">
+            I invite you to join a community of like-minded individuals who are committed to 
+            revolutionizing the hospitality industry. Together, we can share insights, celebrate 
+            victories, and support each other through challenges.
+          </p>
+          
+          <p className="invitation-text reveal">
+            This isn't just about business metrics or operational efficiency. It's about creating 
+            spaces where people feel truly welcomed. It's about building organizations where team 
+            members thrive. It's about leaving a legacy that matters.
+          </p>
+          
+          <p className="invitation-text reveal">
+            The invitation is simple: take the next step. Connect with us. Share your story. 
+            Let's continue this conversation and turn these principles into reality.
+          </p>
+          
+          <div className="invitation-cta reveal">
+            <Link to="/signup" className="btn btn-primary btn-secondary-dark" data-testid="invitation-cta-button">
+              Continue the Journey
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
 
+// Sign Up Page
+const SignUpPage = () => {
+  useEffect(() => {
+    // Load JotForm handler script
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.jotformEmbedHandler) {
+        window.jotformEmbedHandler("iframe[id='JotFormIFrame-260952733297062']", "https://form.jotform.com/");
+      }
+    };
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  
+  return (
+    <div className="signup-page">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="signup-hero" data-testid="signup-hero">
+        <div className="signup-hero-content">
+          <p className="signup-overline">Join the Community</p>
+          <h1 className="signup-hero-title" data-testid="signup-title">Begin Your Transformation</h1>
+          <p className="signup-description">
+            Connect with fellow hospitality professionals and receive exclusive insights, 
+            updates, and resources to accelerate your journey.
+          </p>
+        </div>
+      </section>
+
+      {/* Form Section */}
+      <section className="signup-form-section" data-testid="signup-form-section">
+        <div className="signup-form-container" data-testid="signup-form-container">
+          <iframe
+            id="JotFormIFrame-260952733297062"
+            title="10X Hotel (Sign up)"
+            onLoad={() => window.parent.scrollTo(0,0)}
+            allowTransparency="true"
+            allow="geolocation; microphone; camera; fullscreen; payment"
+            src="https://form.jotform.com/260952733297062"
+            frameBorder="0"
+            style={{minWidth: '100%', maxWidth: '100%', height: '539px', border: 'none'}}
+            scrolling="no"
+            data-testid="jotform-iframe"
+          />
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+// App Component
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/invitation" element={<InvitationPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

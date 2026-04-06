@@ -1,5 +1,6 @@
 /* ===================================
    10X Hotels - Premium Book Website
+   Static CSS for GitHub Pages
    =================================== */
 
 /* Google Fonts Import */
@@ -46,7 +47,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background: var(--bg-dark);
 }
 
 /* Typography */
@@ -479,7 +479,7 @@ a {
   padding: 6rem 0;
 }
 
-.benefits-section .benefits-title {
+.benefits-title {
   text-align: center;
   color: var(--text-dark);
   margin-bottom: 4rem;
@@ -512,7 +512,7 @@ a {
   margin-bottom: 1rem;
 }
 
-.benefit-card .benefit-title {
+.benefit-title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   color: var(--text-dark);
