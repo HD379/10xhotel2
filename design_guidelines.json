@@ -1,0 +1,111 @@
+{
+  "theme_and_archetype": "Archetype 5: Jewel & Luxury (High-End Hospitality Variant)",
+  "design_philosophy": "Minimal, premium, high-end hospitality aesthetic. Calm, spacious, refined, and aspirational. The design prioritizes negative space, cinematic visual pacing, and high-contrast editorial layouts to evoke exclusivity. No clutter, no unnecessary decorative elements—every pixel serves the narrative.",
+  "colors": {
+    "background_dark": "#0A0A0A",
+    "background_light": "#FAF9F6",
+    "surface_beige": "#F4F0E6",
+    "surface_glass_dark": "rgba(10, 10, 10, 0.6)",
+    "surface_glass_light": "rgba(250, 249, 246, 0.7)",
+    "accent_gold": "#D4AF37",
+    "accent_gold_hover": "#B8972E",
+    "text_primary_light": "#FFFFFF",
+    "text_secondary_light": "#A3A3A3",
+    "text_primary_dark": "#0A0A0A",
+    "text_secondary_dark": "#525252",
+    "border_subtle_dark": "rgba(255, 255, 255, 0.1)",
+    "border_subtle_light": "rgba(10, 10, 10, 0.1)",
+    "border_gold": "rgba(212, 175, 55, 0.4)"
+  },
+  "typography": {
+    "primary_font": "Cormorant Garamond, serif",
+    "secondary_font": "Outfit, sans-serif",
+    "scale": {
+      "h1": "text-5xl md:text-6xl tracking-tighter leading-none font-light",
+      "h2": "text-3xl md:text-4xl tracking-tight leading-tight font-light",
+      "h3": "text-2xl md:text-3xl font-light",
+      "body": "text-base md:text-lg leading-relaxed font-light",
+      "overline": "text-xs tracking-[0.2em] uppercase font-medium"
+    },
+    "rules": [
+      "Headings (H1, H2, H3) MUST use the primary serif font (Cormorant Garamond).",
+      "Body text, buttons, and overlines MUST use the secondary sans-serif font (Outfit).",
+      "Avoid bold weights for headings; rely on scale and the natural elegance of the serif."
+    ]
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Use extreme generosity. Sections should have py-24 to py-32. Elements within sections should use gap-12 or gap-16.",
+    "container": "Max-width constraints should feel intentional. Use max-w-7xl for wide layouts, and max-w-2xl (or max-w-prose) for reading sections (like the Invitation).",
+    "alignment": "Favor distinct asymmetry or perfectly centered editorial balance. Do not use standard equal-column bootstrappy layouts."
+  },
+  "components": {
+    "buttons": {
+      "primary": "Solid gold background (#D4AF37), black text (#0A0A0A). No border radius (sharp edges) or rounded-sm. Hover: darken gold slightly, subtle lift (-translate-y-1), and drop shadow.",
+      "secondary": "Transparent background, 1px solid white/black border (depending on theme), white/black text. Hover: Background shifts to white/black, text inverts.",
+      "typography": "Uppercase, tracking-widest, text-sm, Outfit font."
+    },
+    "navigation": {
+      "style": "Glassmorphism. backdrop-blur-xl with very low opacity background. 1px bottom border of subtle opacity.",
+      "links": "Minimalist, sans-serif, hover state uses accent gold color or a subtle underline."
+    },
+    "cards_and_surfaces": {
+      "style": "Flat, sharp edges, no default rounded corners. If wrapping the JotForm, use a solid beige or white surface with a 1px subtle gold border."
+    }
+  },
+  "motion_and_interactions": {
+    "global": "Use 'lenis' for smooth momentum scrolling. It is MANDATORY for the premium feel.",
+    "entrance": "Use framer-motion for slow, cinematic fade-ins (duration: 0.8s to 1.2s) and slight upward translations (y: 20 -> 0) when elements scroll into view.",
+    "hover": "All interactive elements must have a distinct hover state with smooth transitions (duration-300).",
+    "3d_book": "The book cover image on the Hero section MUST use framer-motion for a 3D tilt effect (rotateX, rotateY) or an elegant isometric floating animation to simulate depth, as the source asset is a 2D PNG."
+  },
+  "pages": {
+    "home": {
+      "theme": "Dark mode primary to establish high-end exclusivity.",
+      "hero_section": "Full screen (min-h-screen). NO TAGLINE. Just the title '10X Hotels' in massive serif typography. The 3D-animated book cover takes center stage or offset perfectly to the right. Include 'Read Now' (opens PDF in new tab) and 'Download' (triggers PDF download) buttons.",
+      "background": "Use the provided luxury_hotel_bg image with heavy black overlay (e.g., bg-black/70) to ensure text contrast while retaining the architectural luxury feel."
+    },
+    "invitation": {
+      "theme": "Light mode (Beige/White) for a tactile, paper-like reading experience.",
+      "layout": "Narrow reading column (max-w-prose). Centered. High-end editorial feel with large drop caps or stylized typographic quotes.",
+      "vibe": "Personal, reflective, and inspiring."
+    },
+    "sign_up": {
+      "theme": "Dark or Light, matching the brand.",
+      "layout": "Centered, distraction-free. A beautifully framed container for the JotForm embed. Add an elegant headline above it."
+    }
+  },
+  "media_urls": {
+    "book_cover": {
+      "url": "https://customer-assets.emergentagent.com/job_adbfac25-0cf9-498e-8349-641ebb366dc9/artifacts/69kyylf8_1775472581.png",
+      "description": "The primary asset. Use with a 3D CSS/Framer Motion effect to make it look like a physical book.",
+      "category": "hero"
+    },
+    "book_pdf": {
+      "url": "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/c09vgcva_10%20X%20Hotels.pdf",
+      "description": "The PDF file for reading and downloading.",
+      "category": "document"
+    },
+    "luxury_hotel_bg": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/adbfac25-0cf9-498e-8349-641ebb366dc9/images/431e8060730a13a7b9fb53ce17b54b9aee4abb81242a225eed3576e3e9ffc1a8.png",
+      "description": "High-end luxury architectural background. Use with a dark overlay to maintain text legibility.",
+      "category": "background"
+    },
+    "minimalist_architecture_1": {
+      "url": "https://images.unsplash.com/photo-1768223933860-6d62bc5b2ff3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbHV4dXJ5JTIwaG90ZWwlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzc1NDc2MzU3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Modern building glass facade. Use as an accent image on the invitation or home page sections if needed.",
+      "category": "accent"
+    }
+  },
+  "instructions_to_main_agent": [
+    "This is a Static HTML/CSS site targeted for GitHub Pages, but built using React/Tailwind/Framer Motion in this environment.",
+    "Do NOT add a tagline to the Hero section. Use ONLY '10X Hotels'.",
+    "Do NOT add an author bio section.",
+    "Implement PDF viewing by using target='_blank' for the 'Read Now' button.",
+    "Implement PDF downloading by using the 'download' attribute on the anchor tag for the 'Download' button.",
+    "For the Sign-Up page, integrate a generic JotForm embed code (script or iframe) if a specific form ID wasn't provided, but wrap it beautifully so it doesn't break the luxury theme.",
+    "ALL interactive and key informational elements MUST include a data-testid attribute in kebab-case (e.g., data-testid='hero-read-button').",
+    "Use 'lenis' for smooth scrolling.",
+    "Ensure 'Cormorant Garamond' and 'Outfit' fonts are imported via Google Fonts in the index.html or global CSS.",
+    "Follow mobile-first responsive design strictly, ensuring the generous spacing scales down appropriately on small screens."
+  ]
+}
