@@ -102,10 +102,10 @@ a {
   right: 0;
   z-index: 1000;
   padding: 1.25rem 0;
-  background: rgba(244, 240, 230, 0.9);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle-light);
+  border-bottom: 1px solid var(--border-subtle-dark);
   transition: var(--transition-smooth);
 }
 
@@ -122,7 +122,7 @@ a {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-light);
   letter-spacing: 0.05em;
 }
 
@@ -140,7 +140,7 @@ a {
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-dark-secondary);
+  color: var(--text-light-secondary);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   position: relative;
@@ -179,7 +179,7 @@ a {
 .nav-toggle span {
   width: 24px;
   height: 1px;
-  background: var(--text-dark);
+  background: var(--text-light);
   transition: var(--transition-smooth);
 }
 
@@ -193,7 +193,7 @@ a {
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(244, 240, 230, 0.98);
+    background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 2rem;
@@ -382,14 +382,13 @@ a {
 /* Book Cover */
 .book-container {
   opacity: 0;
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeIn 1s ease forwards;
   animation-delay: 0.6s;
 }
 
 .book-wrapper {
   width: 340px;
   height: auto;
-  transition: transform 0.4s ease;
 }
 
 @media (min-width: 640px) {
@@ -408,18 +407,6 @@ a {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.25),
-    0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: var(--transition-smooth);
-}
-
-.book-wrapper:hover .book-cover {
-  transform: scale(1.02);
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.3),
-    0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Introduction Section */
@@ -514,94 +501,32 @@ a {
 
 /* Invitation Page Styles */
 .invitation-page {
-  background: var(--bg-light);
+  background: var(--surface-beige);
   min-height: 100vh;
 }
 
-.invitation-hero {
-  min-height: 50vh;
+.invitation-simple {
+  min-height: calc(100vh - 150px);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--bg-dark);
-  position: relative;
   padding: 8rem 1.5rem 4rem;
-}
-
-.invitation-hero-content {
   text-align: center;
 }
 
-.invitation-overline {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--accent-gold);
-  margin-bottom: 1.5rem;
-}
-
-.invitation-hero-title {
-  color: var(--text-light);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-.invitation-content {
-  padding: 5rem 1.5rem 6rem;
-  background: var(--bg-light);
-}
-
-.invitation-body {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.drop-cap {
+.invitation-title {
   font-family: var(--font-heading);
-  font-size: 4rem;
-  float: left;
-  line-height: 0.85;
-  padding-right: 0.75rem;
-  padding-top: 0.25rem;
-  color: var(--accent-gold);
-}
-
-.invitation-text {
+  font-size: clamp(3rem, 8vw, 5rem);
   color: var(--text-dark);
-  font-size: 1.125rem;
-  line-height: 2;
   margin-bottom: 2rem;
 }
 
-.invitation-quote {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-style: italic;
-  color: var(--text-dark);
-  text-align: center;
-  padding: 3rem 0;
-  margin: 3rem 0;
-  border-top: 1px solid var(--border-subtle-light);
-  border-bottom: 1px solid var(--border-subtle-light);
-  position: relative;
-}
-
-.invitation-quote::before {
-  content: '"';
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 4rem;
-  color: var(--accent-gold);
-  opacity: 0.3;
-  line-height: 1;
-}
-
-.invitation-cta {
-  text-align: center;
-  margin-top: 4rem;
+.invitation-simple .invitation-text {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--text-dark-secondary);
+  max-width: 600px;
 }
 
 /* Sign-Up Page Styles */
@@ -671,9 +596,9 @@ a {
 
 /* Footer */
 .footer {
-  background: var(--surface-beige);
+  background: var(--bg-dark);
   padding: 3rem 0;
-  border-top: 1px solid var(--border-subtle-light);
+  border-top: 1px solid var(--border-subtle-dark);
 }
 
 .footer-content {
@@ -696,7 +621,7 @@ a {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .footer-logo span {
@@ -704,7 +629,7 @@ a {
 }
 
 .footer-text {
-  color: var(--text-dark-secondary);
+  color: var(--text-light-secondary);
   font-size: 0.875rem;
 }
 
@@ -714,7 +639,7 @@ a {
 }
 
 .footer-link {
-  color: var(--text-dark-secondary);
+  color: var(--text-light-secondary);
   font-size: 0.875rem;
 }
 

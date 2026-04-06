@@ -130,68 +130,16 @@ const HomePage = () => {
 
 // Invitation Page
 const InvitationPage = () => {
-  useScrollReveal();
-  
   return (
     <div className="invitation-page">
-      <Navigation isLight />
+      <Navigation />
       
-      {/* Hero Section */}
-      <section className="invitation-hero" data-testid="invitation-hero">
-        <div className="invitation-hero-content">
-          <p className="invitation-overline">Chapter: An Invitation</p>
-          <h1 className="invitation-hero-title" data-testid="invitation-title">You've Made It This Far</h1>
-        </div>
-      </section>
-
-      {/* Content Section */}
-      <section className="invitation-content" data-testid="invitation-content">
-        <div className="invitation-body">
-          <p className="invitation-text reveal">
-            <span className="drop-cap">T</span>hank you for taking this journey through the pages of 10X Hotels. 
-            The fact that you've arrived here tells me something important about you — you're not content 
-            with ordinary. You seek more. You believe that excellence isn't just possible, it's essential.
-          </p>
-          
-          <p className="invitation-text reveal">
-            Throughout this book, we've explored the principles that separate exceptional hotels from 
-            merely good ones. We've examined the delicate balance between guest satisfaction, team 
-            fulfillment, and investor returns. We've challenged assumptions and questioned the status quo.
-          </p>
-          
-          <p className="invitation-text reveal">
-            But reading alone isn't enough. The true transformation begins when you take these ideas 
-            and make them your own. When you adapt them to your unique circumstances. When you have 
-            the courage to implement change, even when it's uncomfortable.
-          </p>
-          
-          <blockquote className="invitation-quote reveal" data-testid="invitation-quote">
-            The difference between where you are and where you want to be is the action you take today.
-          </blockquote>
-          
-          <p className="invitation-text reveal">
-            I invite you to join a community of like-minded individuals who are committed to 
-            revolutionizing the hospitality industry. Together, we can share insights, celebrate 
-            victories, and support each other through challenges.
-          </p>
-          
-          <p className="invitation-text reveal">
-            This isn't just about business metrics or operational efficiency. It's about creating 
-            spaces where people feel truly welcomed. It's about building organizations where team 
-            members thrive. It's about leaving a legacy that matters.
-          </p>
-          
-          <p className="invitation-text reveal">
-            The invitation is simple: take the next step. Connect with us. Share your story. 
-            Let's continue this conversation and turn these principles into reality.
-          </p>
-          
-          <div className="invitation-cta reveal">
-            <Link to="/signup" className="btn btn-primary btn-secondary-dark" data-testid="invitation-cta-button">
-              Continue the Journey
-            </Link>
-          </div>
-        </div>
+      {/* Simple Content */}
+      <section className="invitation-simple" data-testid="invitation-content">
+        <h1 className="invitation-title" data-testid="invitation-title">Invitation</h1>
+        <p className="invitation-text">
+          Thank you for reading 10X Hotels. More content coming soon.
+        </p>
       </section>
 
       <Footer />
