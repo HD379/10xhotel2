@@ -531,7 +531,7 @@ a {
 
 /* Sign-Up Page Styles */
 .signup-page {
-  background: var(--bg-dark);
+  background: var(--surface-beige);
   min-height: 100vh;
 }
 
@@ -558,13 +558,13 @@ a {
 }
 
 .signup-hero-title {
-  color: var(--text-light);
+  color: var(--text-dark);
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
 }
 
 .signup-description {
-  color: var(--text-light-secondary);
+  color: var(--text-dark-secondary);
   font-size: 1.125rem;
   max-width: 500px;
   margin: 0 auto;
