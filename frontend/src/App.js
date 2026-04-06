@@ -77,10 +77,8 @@ const useScrollReveal = () => {
 
 // Home Page
 const HomePage = () => {
-  useScrollReveal();
-  
   const PDF_URL = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/c09vgcva_10%20X%20Hotels.pdf";
-  const BOOK_COVER = "https://customer-assets.emergentagent.com/job_adbfac25-0cf9-498e-8349-641ebb366dc9/artifacts/69kyylf8_1775472581.png";
+  const BOOK_COVER = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/15b0toe5_10X%20Hotels%20book%20cover.png";
   
   return (
     <>
@@ -88,9 +86,6 @@ const HomePage = () => {
       
       {/* Hero Section */}
       <section className="hero" data-testid="hero-section">
-        <div className="hero-bg"></div>
-        <div className="hero-overlay"></div>
-        
         <div className="hero-content">
           <div className="hero-text">
             <p className="hero-overline">A Book by Dane E. Rose</p>
@@ -123,61 +118,6 @@ const HomePage = () => {
                    alt="10X Hotels Book Cover" 
                    className="book-cover"
                    data-testid="book-cover-image" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Introduction Section */}
-      <section className="intro-section" data-testid="intro-section">
-        <div className="container">
-          <div className="intro-content reveal">
-            <h2 className="intro-title">Redefining Hospitality Excellence</h2>
-            <div className="intro-text">
-              <p>
-                In an industry where the difference between good and great can transform businesses, 
-                "10X Hotels" presents a groundbreaking framework for achieving exponential growth 
-                while maintaining the human touch that defines true hospitality.
-              </p>
-              <p>
-                This book challenges conventional wisdom and offers practical strategies that have 
-                been tested and proven in real-world environments. Whether you're a seasoned hotelier, 
-                an aspiring entrepreneur, or an investor seeking to understand the hospitality landscape, 
-                these insights will reshape how you think about value creation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="benefits-section" data-testid="benefits-section">
-        <div className="container">
-          <h2 className="benefits-title reveal">What You'll Discover</h2>
-          
-          <div className="benefits-grid">
-            <div className="benefit-card reveal">
-              <div className="benefit-number">01</div>
-              <h3 className="benefit-title">Guest Experience</h3>
-              <p className="benefit-text">
-                Learn how to create memorable moments that transform first-time visitors into lifelong advocates.
-              </p>
-            </div>
-            
-            <div className="benefit-card reveal">
-              <div className="benefit-number">02</div>
-              <h3 className="benefit-title">Team Excellence</h3>
-              <p className="benefit-text">
-                Discover frameworks for building teams that are engaged, empowered, and deliver exceptional service.
-              </p>
-            </div>
-            
-            <div className="benefit-card reveal">
-              <div className="benefit-number">03</div>
-              <h3 className="benefit-title">Investor Value</h3>
-              <p className="benefit-text">
-                Understand the metrics and strategies that drive sustainable, long-term returns in hospitality.
-              </p>
             </div>
           </div>
         </div>
