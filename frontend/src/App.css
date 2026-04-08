@@ -386,6 +386,16 @@ a {
   animation-delay: 0.6s;
 }
 
+.book-link {
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.book-link:hover {
+  transform: scale(1.02);
+}
+
 .book-wrapper {
   width: 340px;
   height: auto;

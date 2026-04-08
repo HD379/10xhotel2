@@ -77,7 +77,7 @@ const useScrollReveal = () => {
 
 // Home Page
 const HomePage = () => {
-  const PDF_URL = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/c09vgcva_10%20X%20Hotels.pdf";
+  const PDF_URL = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/jxw042rc_10%20X%20Hotels%20Final.pdf";
   const BOOK_COVER = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/15b0toe5_10X%20Hotels%20book%20cover.png";
   
   return (
@@ -113,12 +113,14 @@ const HomePage = () => {
           </div>
           
           <div className="book-container" data-testid="book-container">
-            <div className="book-wrapper">
-              <img src={BOOK_COVER} 
-                   alt="10X Hotels Book Cover" 
-                   className="book-cover"
-                   data-testid="book-cover-image" />
-            </div>
+            <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="book-link">
+              <div className="book-wrapper">
+                <img src={BOOK_COVER} 
+                     alt="10X Hotels Book Cover" 
+                     className="book-cover"
+                     data-testid="book-cover-image" />
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -126,7 +128,7 @@ const HomePage = () => {
       <Footer />
     </>
   );
-};
+};;
 
 // Invitation Page
 const InvitationPage = () => {
