@@ -78,7 +78,7 @@ const useScrollReveal = () => {
 // Home Page
 const HomePage = () => {
   const PDF_URL = "/10X-Hotels.pdf";
-  const BOOK_COVER = "https://customer-assets.emergentagent.com/job_luxury-tenx-book/artifacts/15b0toe5_10X%20Hotels%20book%20cover.png";
+  const BOOK_COVER = "/book-cover.png";
   
   return (
     <>
