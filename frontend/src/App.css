@@ -509,43 +509,110 @@ a {
   font-size: 0.95rem;
 }
 
-/* Invitation Page Styles */
-.invitation-page {
+/* Services Page Styles */
+.services-page {
   background: var(--surface-beige);
   min-height: 100vh;
 }
 
-.invitation-simple {
-  min-height: calc(100vh - 150px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.services-content {
+  max-width: 800px;
+  margin: 0 auto;
   padding: 8rem 1.5rem 4rem;
-  text-align: center;
 }
 
-.invitation-title {
+.services-title {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 8vw, 5rem);
   color: var(--text-dark);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-.invitation-simple .invitation-text {
+.services-list {
+  margin-bottom: 3rem;
+}
+
+.service-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-subtle-light);
+}
+
+.service-item p {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+
+.service-item.highlight {
+  background: rgba(212, 175, 55, 0.1);
+  padding: 1.5rem;
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  margin-top: 1.5rem;
+}
+
+.service-item.highlight p {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.services-steps {
+  margin: 3rem 0;
+}
+
+.services-steps h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.step-number {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  min-width: 80px;
+}
+
+.step p {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-dark);
+}
+
+.services-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle-light);
+}
+
+.services-cta p {
   font-family: var(--font-body);
   font-size: 1.25rem;
-  color: var(--text-dark-secondary);
-  max-width: 600px;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
 }
 
-/* Sign-Up Page Styles */
-.signup-page {
+/* Contact Page Styles */
+.contact-page {
   background: var(--surface-beige);
   min-height: 100vh;
 }
 
-.signup-hero {
+.contact-hero {
   min-height: 40vh;
   display: flex;
   align-items: center;
@@ -553,11 +620,11 @@ a {
   padding: 8rem 1.5rem 3rem;
 }
 
-.signup-hero-content {
+.contact-hero-content {
   text-align: center;
 }
 
-.signup-overline {
+.contact-overline {
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 500;
@@ -567,29 +634,29 @@ a {
   margin-bottom: 1.5rem;
 }
 
-.signup-hero-title {
+.contact-hero-title {
   color: var(--text-dark);
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
 }
 
-.signup-description {
+.contact-description {
   color: var(--text-dark-secondary);
   font-size: 1.125rem;
   max-width: 500px;
   margin: 0 auto;
 }
 
-.signup-form-section {
+.contact-form-section {
   padding: 3rem 1.5rem 6rem;
 }
 
-.signup-form-container {
+.contact-form-container {
   max-width: 700px;
   margin: 0 auto;
 }
 
-.signup-form-container iframe {
+.contact-form-container iframe {
   width: 100%;
   min-height: 539px;
   border: none;
